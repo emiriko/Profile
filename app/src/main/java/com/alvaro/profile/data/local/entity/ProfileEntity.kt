@@ -11,7 +11,7 @@ data class ProfileEntity(
     val contacts: List<ContactInformation>
 )
 
-data class ContactInformation (
+data class ContactInformation(
     val icon: ImageVector,
     val value: String,
     val url: String,

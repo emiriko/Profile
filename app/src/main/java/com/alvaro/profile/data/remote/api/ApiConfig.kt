@@ -1,11 +1,11 @@
 package com.alvaro.profile.data.remote.api
 
 import com.alvaro.profile.BuildConfig
-import java.util.concurrent.TimeUnit
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 
 class ApiConfig {
     companion object {
@@ -18,7 +18,7 @@ class ApiConfig {
                 } else {
                     HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
                 }
-            
+
             val apiInterceptor = ApiInterceptor()
             val client =
                 OkHttpClient.Builder()

@@ -1,6 +1,5 @@
 package com.alvaro.profile
 
-import android.util.Log
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
@@ -44,9 +43,9 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import com.alvaro.profile.data.local.entity.FavoriteEntity
 import com.alvaro.profile.data.state.ResultState
 import com.alvaro.profile.data.state.UiState
+import com.alvaro.profile.ui.ViewModelFactory
 import com.alvaro.profile.ui.navigation.BottomNavigationBar
 import com.alvaro.profile.ui.navigation.Screen
-import com.alvaro.profile.ui.ViewModelFactory
 import com.alvaro.profile.ui.screen.detail.DetailScreen
 import com.alvaro.profile.ui.screen.detail.DetailViewModel
 import com.alvaro.profile.ui.screen.favorite.FavoriteScreen
@@ -55,9 +54,9 @@ import com.alvaro.profile.ui.screen.home.HomeScreen
 import com.alvaro.profile.ui.screen.home.HomeViewModel
 import com.alvaro.profile.ui.screen.profile.ProfileScreen
 import com.alvaro.profile.ui.screen.profile.ProfileViewModel
+import com.alvaro.profile.ui.theme.Gradient
 import com.alvaro.profile.ui.theme.ProfileTheme
 import com.alvaro.profile.ui.theme.SetSystemBarColor
-import com.alvaro.profile.ui.theme.Gradient
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -68,9 +67,9 @@ fun ProfileApp(
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
     val context = LocalContext.current
-    
+
     var currentTitle by remember { mutableStateOf(currentRoute) }
-    
+
     LaunchedEffect(currentRoute) {
         currentTitle = if (currentRoute == Screen.Detail.route) {
             "Detail"
@@ -78,7 +77,7 @@ fun ProfileApp(
             currentRoute
         }
     }
-    
+
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -94,8 +93,8 @@ fun ProfileApp(
                 },
                 navigationIcon = {
                     if (
-                        navController.previousBackStackEntry != null 
-                        && 
+                        navController.previousBackStackEntry != null
+                        &&
                         (currentRoute == Screen.Profile.route || currentRoute == Screen.Detail.route)
                     ) {
                         IconButton(
@@ -119,7 +118,7 @@ fun ProfileApp(
             )
         },
         bottomBar = {
-            if (currentRoute != Screen.Detail.route && currentRoute != Screen.Profile.route ) {
+            if (currentRoute != Screen.Detail.route && currentRoute != Screen.Profile.route) {
                 SetSystemBarColor()
                 BottomNavigationBar(
                     navController = navController,
@@ -151,17 +150,17 @@ fun ProfileApp(
             },
         ) {
             composable(Screen.Home.route) {
-                val homeViewModel: HomeViewModel = viewModel<HomeViewModel> (
+                val homeViewModel: HomeViewModel = viewModel<HomeViewModel>(
                     factory = ViewModelFactory(context)
                 )
-                
+
                 val users = homeViewModel.filteredUser.collectAsLazyPagingItems()
                 val searchQuery by homeViewModel.searchQuery.collectAsState()
 
                 LaunchedEffect(Unit) {
                     homeViewModel.getUsers()
                 }
-                
+
                 HomeScreen(
                     users = users,
                     searchQuery = searchQuery,
@@ -174,29 +173,29 @@ fun ProfileApp(
                 )
             }
             composable(Screen.Profile.route) {
-                val profileViewModel: ProfileViewModel = viewModel<ProfileViewModel> (
+                val profileViewModel: ProfileViewModel = viewModel<ProfileViewModel>(
                     factory = ViewModelFactory(context)
                 )
-                
+
                 val uiState by profileViewModel.uiState.collectAsState(initial = UiState.Loading)
                 val profile by profileViewModel.profileData.collectAsState()
-                
+
                 ProfileScreen(
                     uiState = uiState,
                     profile = profile
                 )
             }
             composable(Screen.Favorite.route) {
-                val favoriteViewModel: FavoriteViewModel = viewModel<FavoriteViewModel> (
+                val favoriteViewModel: FavoriteViewModel = viewModel<FavoriteViewModel>(
                     factory = ViewModelFactory(context)
                 )
-                
+
                 LaunchedEffect(Unit) {
                     favoriteViewModel.getFavorites()
                 }
-                
+
                 val uiState by favoriteViewModel.uiState.collectAsState()
-                
+
                 FavoriteScreen(
                     uiState = uiState,
                     onSurfaceClicked = { userId ->
@@ -207,36 +206,37 @@ fun ProfileApp(
             composable(
                 route = Screen.Detail.createRoute("{userId}"),
                 arguments = listOf(
-                    navArgument("userId") { type = NavType.StringType } 
+                    navArgument("userId") { type = NavType.StringType }
                 )
             ) {
                 val detailViewModel: DetailViewModel = viewModel(
                     factory = ViewModelFactory(context),
                 )
 
-                val favoriteViewModel: FavoriteViewModel = viewModel<FavoriteViewModel> (
+                val favoriteViewModel: FavoriteViewModel = viewModel<FavoriteViewModel>(
                     factory = ViewModelFactory(context)
                 )
 
                 val user by detailViewModel.user.collectAsState()
                 val posts = detailViewModel.posts.collectAsLazyPagingItems()
-                
+
                 var isOnFavorite by remember { mutableStateOf(false) }
                 val favorites by favoriteViewModel.uiState.collectAsState()
-                
+
                 when (val userState = user) {
                     is ResultState.Success -> {
                         val data = userState.data
                         LaunchedEffect(user) {
                             currentTitle = "${data.firstName} ${data.lastName}"
                         }
-                        
-                        isOnFavorite = favorites is ResultState.Success && 
+
+                        isOnFavorite = favorites is ResultState.Success &&
                                 (favorites as ResultState.Success<List<FavoriteEntity>>).data.any { it.id == data.id }
                     }
+
                     else -> Unit
                 }
-                
+
                 DetailScreen(
                     user = user,
                     posts = posts,
@@ -252,7 +252,7 @@ fun ProfileApp(
                 )
             }
         }
-        
+
     }
 }
 

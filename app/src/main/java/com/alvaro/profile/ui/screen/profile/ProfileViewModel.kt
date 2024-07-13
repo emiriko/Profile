@@ -8,28 +8,30 @@ import com.alvaro.profile.data.state.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
-class ProfileViewModel (
+class ProfileViewModel(
     private val profileRepository: ProfileRepository
-): ViewModel() {
+) : ViewModel() {
     private val _uiState = MutableStateFlow<UiState>(UiState.Loading)
     val uiState
         get() = _uiState
-    
-    private val _profileData = MutableStateFlow(ProfileEntity(
-        name = "",
-        email = "",
-        profileImage = 0,
-        university = "",
-        description = "",
-        contacts = emptyList()
-    ))
+
+    private val _profileData = MutableStateFlow(
+        ProfileEntity(
+            name = "",
+            email = "",
+            profileImage = 0,
+            university = "",
+            description = "",
+            contacts = emptyList()
+        )
+    )
     val profileData
         get() = _profileData
-    
+
     init {
         getProfile()
     }
-    
+
     private fun getProfile() {
         viewModelScope.launch {
             _uiState.value = UiState.Loading

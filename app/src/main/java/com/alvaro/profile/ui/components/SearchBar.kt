@@ -8,10 +8,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
@@ -45,7 +41,7 @@ fun SearchBar(
         leadingIcon = {
             Icon(
                 imageVector = BootstrapIcons.Normal.Search,
-                contentDescription =  stringResource(id = R.string.search_icon),
+                contentDescription = stringResource(id = R.string.search_icon),
                 tint = Gray,
                 modifier = Modifier
                     .padding(start = 8.dp)

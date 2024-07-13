@@ -36,7 +36,7 @@ fun FavoriteItem(
 ) {
     Surface(
         modifier = modifier
-            .clickable { 
+            .clickable {
                 onSurfaceClicked(favorite.id)
             }
             .padding(8.dp)

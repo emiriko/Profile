@@ -25,7 +25,7 @@ abstract class FavoriteDatabase : RoomDatabase() {
                         context.applicationContext,
                         FavoriteDatabase::class.java, "Favorites.db"
                     )
-                    .build()
+                        .build()
                 }
             }
             return INSTANCE as FavoriteDatabase

@@ -18,7 +18,7 @@ interface ApiService {
     suspend fun getUserDetail(
         @Path("userId") userId: String,
     ): UserDetailResponse
-    
+
     @GET("user/{userId}/post")
     suspend fun getUserPosts(
         @Path("userId") userId: String,

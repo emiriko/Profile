@@ -34,11 +34,11 @@ fun ErrorIndicator(
     onClick: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-    Column (
+    Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(12.dp),
         modifier = modifier
-    ){
+    ) {
         Icon(
             imageVector = BootstrapIcons.Normal.ShieldX,
             contentDescription = "Error",
@@ -84,7 +84,7 @@ fun ErrorMessage(
             )
         }
     }
-    
+
     if (orientation == Orientation.Vertical) {
         Column(
             modifier = modifier.padding(10.dp),

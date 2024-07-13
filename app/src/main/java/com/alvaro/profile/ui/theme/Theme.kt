@@ -49,9 +49,10 @@ fun ProfileTheme(
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
+
         else -> LightColorScheme
     }
-    
+
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
@@ -60,9 +61,9 @@ fun ProfileTheme(
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }
-    
+
     SetSystemBarColor()
-    
+
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,

@@ -43,27 +43,27 @@ object Helper {
 
     fun getDummyUserDetail(): UserDetailResponse {
         return UserDetailResponse(
-                id = "60d0fe4f5311236168a109ca",
-                title = "ms",
-                firstName = "Sara",
-                lastName = "Andersen",
-                picture = "https://randomuser.me/api/portraits/women/58.jpg",
-                gender = "female",
-                email = "sara.andersen@example.com",
-                dateOfBirth = "1996-04-30T19:26:49.610Z",
-                phone = "92694011",
-                location = Location(
-                    street = "9614, SÃ¸ndermarksvej",
-                    city = "Kongsvinger",
-                    state = "Nordjylland",
-                    country = "Denmark",
-                    timezone = "-9:00"
-                ),
-                registerDate= "2021-06-21T21:02:07.374Z",
-                updatedDate= "2021-06-21T21:02:07.374Z"
+            id = "60d0fe4f5311236168a109ca",
+            title = "ms",
+            firstName = "Sara",
+            lastName = "Andersen",
+            picture = "https://randomuser.me/api/portraits/women/58.jpg",
+            gender = "female",
+            email = "sara.andersen@example.com",
+            dateOfBirth = "1996-04-30T19:26:49.610Z",
+            phone = "92694011",
+            location = Location(
+                street = "9614, SÃ¸ndermarksvej",
+                city = "Kongsvinger",
+                state = "Nordjylland",
+                country = "Denmark",
+                timezone = "-9:00"
+            ),
+            registerDate = "2021-06-21T21:02:07.374Z",
+            updatedDate = "2021-06-21T21:02:07.374Z"
         )
     }
-    
+
     fun getDummyUserPosts(): List<Posts> {
         return listOf(
             Posts(
@@ -76,7 +76,7 @@ object Helper {
                     "canine"
                 ),
                 text = "two brown and black dogs sitting on green grass fi...",
-                publishDate =  "2020-02-27T16:08:29.562Z",
+                publishDate = "2020-02-27T16:08:29.562Z",
                 owner = Owner(
                     id = "60d0fe4f5311236168a109ca",
                     title = "ms",
@@ -95,7 +95,7 @@ object Helper {
                     "mammal"
                 ),
                 text = "long-coat brown and white dog in close-up photogra...",
-                publishDate =  "2020-02-10T21:04:06.213Z",
+                publishDate = "2020-02-10T21:04:06.213Z",
                 owner = Owner(
                     id = "60d0fe4f5311236168a109ca",
                     title = "ms",
@@ -106,7 +106,7 @@ object Helper {
             ),
         )
     }
-    
+
     fun getDummyFavorites(): List<FavoriteEntity> {
         return listOf(
             FavoriteEntity(

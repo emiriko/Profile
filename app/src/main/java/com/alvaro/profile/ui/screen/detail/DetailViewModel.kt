@@ -13,30 +13,30 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
 
-class DetailViewModel (
+class DetailViewModel(
     private val savedStateHandle: SavedStateHandle,
     private val detailRepository: DetailRepository
-): ViewModel() {
+) : ViewModel() {
 
     private val userId: String? = savedStateHandle["userId"]
-    
+
     private val _user = MutableStateFlow<ResultState<UserDetailResponse>>(ResultState.Loading)
     val user
         get() = _user
-    
-    private val _posts =  MutableStateFlow<PagingData<Posts>>(PagingData.empty())
+
+    private val _posts = MutableStateFlow<PagingData<Posts>>(PagingData.empty())
     val posts
         get() = _posts
-    
+
     init {
-        if ( userId != null ) {
+        if (userId != null) {
             getUserDetail()
             getUserPosts()
         } else {
             _user.value = ResultState.Error("User not found.")
         }
     }
-    
+
     private fun getUserDetail() {
         viewModelScope.launch {
             _user.value = ResultState.Loading
@@ -51,7 +51,7 @@ class DetailViewModel (
                 .cachedIn(viewModelScope)
                 .distinctUntilChanged()
                 .collect { data ->
-                   _posts.value = data
+                    _posts.value = data
                 }
         }
     }

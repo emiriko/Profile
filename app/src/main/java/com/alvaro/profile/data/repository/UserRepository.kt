@@ -16,7 +16,7 @@ class UserRepository(
             pagingSourceFactory = { UserPagingSource(apiService) })
             .flow
     }
-    
+
     companion object {
         @Volatile
         private var instance: UserRepository? = null

@@ -1,6 +1,5 @@
 package com.alvaro.profile.ui.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -8,11 +7,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -25,18 +21,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.zIndex
 import coil.compose.SubcomposeAsyncImage
 import com.alvaro.profile.R
-import com.alvaro.profile.ui.theme.LightPink
 import com.alvaro.profile.ui.theme.ProfileTheme
 import com.alvaro.profile.utils.Helper
 import com.alvaro.profile.utils.getGender
 import com.wiryadev.bootstrapiconscompose.BootstrapIcons
 import com.wiryadev.bootstrapiconscompose.BsIcon
-import com.wiryadev.bootstrapiconscompose.bootstrapicons.Filled
 import com.wiryadev.bootstrapiconscompose.bootstrapicons.Normal
-import com.wiryadev.bootstrapiconscompose.bootstrapicons.normal.ChevronBarRight
 import com.wiryadev.bootstrapiconscompose.bootstrapicons.normal.ChevronRight
 
 @Composable
@@ -99,7 +91,7 @@ fun UserItem(
             }
         }
         BsIcon(
-            bsIcon = BootstrapIcons.Normal.ChevronRight, 
+            bsIcon = BootstrapIcons.Normal.ChevronRight,
             tint = MaterialTheme.colorScheme.onSurfaceVariant,
             size = 25.dp,
         )

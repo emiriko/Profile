@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -37,9 +36,6 @@ import com.wiryadev.bootstrapiconscompose.BootstrapIcons
 import com.wiryadev.bootstrapiconscompose.BsIcon
 import com.wiryadev.bootstrapiconscompose.bootstrapicons.Filled
 import com.wiryadev.bootstrapiconscompose.bootstrapicons.filled.Heart
-import com.wiryadev.bootstrapiconscompose.bootstrapicons.filled.SuitHeart
-import java.text.SimpleDateFormat
-import java.util.Locale
 
 @Composable
 fun PostCard(
@@ -115,7 +111,7 @@ fun PostCard(
                     color = LightPinkPurple,
                 )
             }
-            
+
             Row(
                 modifier = Modifier.padding(bottom = 8.dp)
             ) {
@@ -138,7 +134,7 @@ fun PostCard(
             val formattedDate = publishDate.parseDate()
 
             Spacer(modifier = Modifier.height(8.dp))
-            
+
             Text(
                 text = stringResource(id = R.string.published_on, formattedDate),
                 style = MaterialTheme.typography.bodySmall,

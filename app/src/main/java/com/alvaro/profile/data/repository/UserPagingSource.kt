@@ -16,10 +16,10 @@ class UserPagingSource(private val apiService: ApiService) : PagingSource<Int, U
         return try {
             val currentPage = params.key ?: 0
             val response = apiService.getUsers(
-                page = currentPage, 
+                page = currentPage,
                 limit = params.loadSize
             )
-            
+
             LoadResult.Page(
                 data = response.data,
                 prevKey = if (currentPage == 0) null else currentPage - 1,

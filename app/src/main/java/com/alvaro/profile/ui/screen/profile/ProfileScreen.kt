@@ -2,7 +2,6 @@ package com.alvaro.profile.ui.screen.profile
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
@@ -11,7 +10,6 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -23,7 +21,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -43,7 +40,6 @@ import com.alvaro.profile.ui.components.LoadingIndicator
 import com.alvaro.profile.ui.theme.LightPink
 import com.alvaro.profile.ui.theme.ProfileTheme
 import com.alvaro.profile.ui.theme.PurpleGrey40
-import com.ehsanmsz.mszprogressindicator.progressindicator.BallClipRotateProgressIndicator
 
 @Composable
 fun ProfileScreen(
@@ -55,6 +51,7 @@ fun ProfileScreen(
         is UiState.Loading -> {
             LoadingIndicator()
         }
+
         is UiState.Success -> {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -150,7 +147,7 @@ fun ProfileContent(
                 )
             }
         }
-        
+
     }
 }
 

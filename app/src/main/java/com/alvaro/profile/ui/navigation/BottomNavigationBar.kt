@@ -1,6 +1,5 @@
 package com.alvaro.profile.ui.navigation
 
-import androidx.compose.foundation.background
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -24,15 +23,15 @@ fun BottomNavigationBar(
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
-    
+
     NavigationBar(
         containerColor = LightPink,
         modifier = modifier,
-        
-    ) {
+
+        ) {
         NavigationItem.items.forEach { item ->
             NavigationBarItem(
-                selected = currentRoute == item.route, 
+                selected = currentRoute == item.route,
                 onClick = {
                     navController.navigate(item.route) {
                         popUpTo(navController.graph.findStartDestination().id) {
@@ -48,10 +47,10 @@ fun BottomNavigationBar(
                         contentDescription = stringResource(id = item.labelResId)
                     )
                 },
-                label = { 
+                label = {
                     Text(
-                        text = stringResource(id = item.labelResId) 
-                    ) 
+                        text = stringResource(id = item.labelResId)
+                    )
                 }
             )
         }

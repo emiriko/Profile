@@ -14,11 +14,11 @@ class FavoriteViewModel(
     val _uiState = MutableStateFlow<ResultState<List<FavoriteEntity>>>(ResultState.Loading)
     val uiState
         get() = _uiState
-    
+
     init {
         getFavorites()
     }
-    
+
     fun getFavorites() {
         viewModelScope.launch {
             _uiState.value = ResultState.Loading
@@ -26,7 +26,7 @@ class FavoriteViewModel(
             _uiState.value = ResultState.Success(response)
         }
     }
-    
+
     fun insertFavorite(favoriteEntity: FavoriteEntity) {
         viewModelScope.launch {
             _uiState.value = ResultState.Loading
@@ -34,7 +34,7 @@ class FavoriteViewModel(
             _uiState.value = ResultState.Success(favoriteRepository.getFavorites())
         }
     }
-    
+
     fun deleteFromFavorites(userId: String) {
         viewModelScope.launch {
             _uiState.value = ResultState.Loading

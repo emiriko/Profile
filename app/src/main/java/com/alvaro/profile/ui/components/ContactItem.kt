@@ -28,8 +28,8 @@ import com.wiryadev.bootstrapiconscompose.bootstrapicons.normal.Envelope
 
 @Composable
 fun ContactItem(
-    icon: ImageVector, 
-    value: String, 
+    icon: ImageVector,
+    value: String,
     url: String,
     iconColor: Color = LightPink,
     textColor: Color = PurpleGrey40,
@@ -38,9 +38,9 @@ fun ContactItem(
 ) {
 
     val intent: Intent = if (
-            icon == BootstrapIcons.Normal.Envelope || 
-            icon == BootstrapIcons.Filled.Envelope 
-        ) {
+        icon == BootstrapIcons.Normal.Envelope ||
+        icon == BootstrapIcons.Filled.Envelope
+    ) {
         Intent(
             Intent.ACTION_SENDTO,
             Uri.parse("$url?subject=Nice to meet you!&body=Hello, I'm interested in your profile.")
@@ -48,7 +48,7 @@ fun ContactItem(
     } else {
         Intent(Intent.ACTION_VIEW, Uri.parse(url))
     }
-    
+
     val context = LocalContext.current
 
     Row(
@@ -56,12 +56,12 @@ fun ContactItem(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
             .fillMaxWidth()
-            .clickable (clickable) {
+            .clickable(clickable) {
                 context.startActivity(intent)
             }
     ) {
         BsIcon(bsIcon = icon, tint = iconColor)
-        
+
         Text(
             text = value,
             style = MaterialTheme.typography.bodyMedium,

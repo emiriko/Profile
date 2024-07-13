@@ -12,7 +12,7 @@ object Injection {
     fun getProfileRepository(): ProfileRepository {
         return ProfileRepository.getInstance()
     }
-    
+
     fun getUserRepository(): UserRepository {
         val apiService = ApiConfig.getApiService()
         return UserRepository.getInstance(apiService)
@@ -22,11 +22,11 @@ object Injection {
         val apiService = ApiConfig.getApiService()
         return DetailRepository.getInstance(apiService)
     }
-    
+
     fun getFavoriteRepository(context: Context): FavoriteRepository {
         val favoriteDatabase = FavoriteDatabase.getInstance(context)
         val favoriteDao = favoriteDatabase.favoriteDao()
-        
+
         return FavoriteRepository.getInstance(favoriteDao)
     }
 }

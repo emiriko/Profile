@@ -25,22 +25,22 @@ object ProfileDataSource {
             ContactInformation(
                 icon = BootstrapIcons.Normal.Instagram,
                 value = "@notalvaroaustin",
-                url =  "https://www.instagram.com/notalvaroaustin"
+                url = "https://www.instagram.com/notalvaroaustin"
             ),
             ContactInformation(
                 icon = BootstrapIcons.Normal.Linkedin,
                 value = "@alvaro.austin",
-                url =  "https://www.linkedin.com/in/alvaro-austin"
+                url = "https://www.linkedin.com/in/alvaro-austin"
             ),
             ContactInformation(
                 icon = BootstrapIcons.Normal.Github,
                 value = "emiriko",
-                url =  "https://github.com/emiriko"
+                url = "https://github.com/emiriko"
             ),
             ContactInformation(
                 icon = BootstrapIcons.Normal.Envelope,
                 value = "itsrealalvaro",
-                url =  "mailto:itsrealalvaro@gmail.com"
+                url = "mailto:itsrealalvaro@gmail.com"
             )
         )
     )

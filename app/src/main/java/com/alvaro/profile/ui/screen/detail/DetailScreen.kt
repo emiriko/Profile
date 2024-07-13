@@ -46,9 +46,9 @@ import com.alvaro.profile.ui.components.ContactItem
 import com.alvaro.profile.ui.components.ErrorIndicator
 import com.alvaro.profile.ui.components.ErrorMessage
 import com.alvaro.profile.ui.components.GradientBackground
-import com.alvaro.profile.ui.components.PostCard
 import com.alvaro.profile.ui.components.LoadingIndicator
 import com.alvaro.profile.ui.components.Orientation
+import com.alvaro.profile.ui.components.PostCard
 import com.alvaro.profile.ui.theme.LightPinkPurple
 import com.alvaro.profile.ui.theme.ProfileTheme
 import com.alvaro.profile.utils.Helper
@@ -127,7 +127,7 @@ fun UserDetailContent(
                     Box(
                         modifier = Modifier
                             .fillMaxSize(),
-                        contentAlignment = Alignment.Center 
+                        contentAlignment = Alignment.Center
                     ) {
                         LoadingIndicator(
                             diameter = 30.dp
@@ -156,15 +156,15 @@ fun UserDetailContent(
         }
 
         UserContactItem(user)
-        
+
         UserPostsContent(posts)
-        
-        Column (
+
+        Column(
             verticalArrangement = Arrangement.Bottom,
             modifier = Modifier
                 .weight(1f)
                 .fillMaxSize()
-        ){
+        ) {
             Button(
                 onClick = {
                     onFavoriteClicked(
@@ -191,7 +191,9 @@ fun UserDetailContent(
                 enabled = favoriteState !is ResultState.Loading,
             ) {
                 Text(
-                    text = if(isOnFavorite) stringResource(id = R.string.remove_favorite) else stringResource(id = R.string.add_favorite),
+                    text = if (isOnFavorite) stringResource(id = R.string.remove_favorite) else stringResource(
+                        id = R.string.add_favorite
+                    ),
                     fontWeight = FontWeight.Bold,
                 )
             }
@@ -241,6 +243,7 @@ fun UserContactItem(
         )
     }
 }
+
 @Composable
 fun UserPostsContent(
     posts: LazyPagingItems<Posts>,
@@ -277,7 +280,7 @@ fun UserPostsContent(
                         )
                     }
                 }
-    
+
                 posts.apply {
                     when {
                         loadState.refresh is LoadState.Loading -> {
@@ -354,7 +357,7 @@ fun DetailSuccessScreenPreview() {
             val postData = Helper.getDummyUserPosts()
 
             val posts = flowOf(PagingData.from(postData)).collectAsLazyPagingItems()
-            
+
             DetailScreen(
                 user = user,
                 posts = posts,

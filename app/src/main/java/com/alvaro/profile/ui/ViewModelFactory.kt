@@ -11,19 +11,28 @@ import com.alvaro.profile.ui.screen.favorite.FavoriteViewModel
 import com.alvaro.profile.ui.screen.home.HomeViewModel
 import com.alvaro.profile.ui.screen.profile.ProfileViewModel
 
-class ViewModelFactory(private val context: Context): ViewModelProvider.NewInstanceFactory() {
+class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInstanceFactory() {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(
         modelClass: Class<T>,
         extras: CreationExtras,
     ): T {
         val savedStateHandle = extras.createSavedStateHandle()
-        
+
         return when (modelClass) {
             ProfileViewModel::class.java -> ProfileViewModel(Injection.getProfileRepository()) as T
             HomeViewModel::class.java -> HomeViewModel(Injection.getUserRepository()) as T
-            DetailViewModel::class.java -> DetailViewModel(savedStateHandle, Injection.getDetailRepository()) as T
-            FavoriteViewModel::class.java -> FavoriteViewModel(Injection.getFavoriteRepository(context)) as T
+            DetailViewModel::class.java -> DetailViewModel(
+                savedStateHandle,
+                Injection.getDetailRepository()
+            ) as T
+
+            FavoriteViewModel::class.java -> FavoriteViewModel(
+                Injection.getFavoriteRepository(
+                    context
+                )
+            ) as T
+
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
     }
