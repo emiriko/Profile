@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Profile</string>
+    <string name="home">Beranda</string>
+    <string name="favorite">Favorit</string>
+    <string name="profile">Profil</string>
+    <string name="retry">Coba Lagi</string>
+    <string name="not_found">404</string>
+    <string name="post_image">Gambar Unggahan</string>
+    <string name="likes">%1$d Suka</string>
+    <string name="published_on">Diterbitkan pada: %1$s</string>
+    <string name="search">Cari Seseorang</string>
+    <string name="search_icon">Gambar Cari Seseorang</string>
+    <string name="remove_favorite">Hapus dari Favorit</string>
+    <string name="add_favorite">Tambahkan ke Favorit</string>
+    <string name="posts">Unggahan</string>
+    <string name="no_favorite">Belum ada yang difavoritkan!</string>
+    <string name="no_match"> Tidak ada Pengguna yang Sesuai </string>
+    <string name="email_university"> %1$s | %2$s </string>
+</resources>

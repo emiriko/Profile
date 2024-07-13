@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Profile</string>
+    <string name="home">Home</string>
+    <string name="favorite">Favorite</string>
+    <string name="profile">Profile</string>
+    <string name="retry">Retry</string>
+    <string name="not_found">404</string>
+    <string name="post_image">Post Image</string>
+    <string name="likes">%1$d Likes</string>
+    <string name="published_on">Published on: %1$s</string>
+    <string name="search">Search</string>
+    <string name="search_icon">Search Icon</string>
+    <string name="remove_favorite">Remove from Favorite</string>
+    <string name="add_favorite">Add to Favorite</string>
+    <string name="posts">Posts</string>
+    <string name="no_favorite">No Favorites Yet!</string>
+    <string name="no_match"> No User Matched </string>
+    <string name="email_university"> %1$s | %2$s </string>
+</resources>
